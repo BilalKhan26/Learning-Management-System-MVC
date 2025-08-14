@@ -1,0 +1,58 @@
+﻿@model IEnumerable<LMS.Models.Course>
+
+<h2>My Courses</h2>
+
+<form method="get" class="mb-3">
+    <input type="text" name="search" value="@ViewBag.CurrentSearch" placeholder="Search courses..." class="form-control" style="width:300px;display:inline-block;" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No courses found.</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Course Title</th>
+                <th>Description</th>
+                <th>Lessons</th>
+                <th>Assignments</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Title</td>
+                    <td>@c.Description</td>
+                    <td>
+                        <a asp-action="Lessons" asp-route-courseId="@c.Id" class="btn btn-sm btn-info">Lessons</a>
+                    </td>
+                    <td>
+                        <a asp-action="Assignments" asp-route-courseId="@c.Id" class="btn btn-sm btn-warning">Assignments</a>
+                    </td>
+                    <td>
+                        <a asp-action="EditCourse" asp-route-id="@c.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="DeleteCourse" asp-route-id="@c.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = i, search = ViewBag.CurrentSearch })">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

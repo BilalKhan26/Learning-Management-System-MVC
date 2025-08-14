@@ -1,0 +1,67 @@
+﻿@model StudentIndexViewModel
+<h2>My Enrolled Courses</h2>
+@if (!Model.EnrolledCourses.Any())
+{
+    <div class="alert alert-info">You are not enrolled in any courses yet.</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Instructor</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.EnrolledCourses)
+            {
+                <tr>
+                    <td>@course.Title</td>
+                    <td>@course.Instructor?.DisplayName</td>
+                    <td>
+                        <a asp-action="ViewCourse" asp-route-id="@course.Id" class="btn btn-primary">View</a>
+                        <form asp-action="Unenroll" method="post" style="display:inline;">
+                            <input type="hidden" name="courseId" value="@course.Id" />
+                            <button type="submit" class="btn btn-danger">Unenroll</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h2>Available Courses</h2>
+@if (!Model.AvailableCourses.Any())
+{
+    <div class="alert alert-success">No more courses to enroll in. Good job!</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Instructor</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model.AvailableCourses)
+            {
+                <tr>
+                    <td>@course.Title</td>
+                    <td>@course.Instructor?.DisplayName</td>
+                    <td>
+                        <form asp-action="Enroll" method="post">
+                            <input type="hidden" name="courseId" value="@course.Id" />
+                            <button type="submit" class="btn btn-success">Enroll</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Submit Assignment";
+}
+
+<h2>Submit Assignment</h2>
+
+<form asp-action="SubmitAssignment" asp-route-assignmentId="@ViewBag.AssignmentId" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Upload File</label>
+        <input type="file" name="submissionFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Submit</button>
+    <a asp-action="Assignments" asp-route-courseId="@ViewBag.CourseId" class="btn btn-secondary mt-2">Cancel</a>
+</form>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<LMS.Models.Assignment>
+@{
+    ViewData["Title"] = "Manage Assignments";
+    var courseId = ViewBag.CourseId;
+}
+
+<h2>Manage Assignments</h2>
+
+<a class="btn btn-primary mb-3" asp-action="AddAssignment" asp-route-courseId="@courseId">Add Assignment</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assignment in Model)
+        {
+            <tr>
+                <td>@assignment.Title</td>
+                <td>@assignment.Description</td>
+                <td>
+                    @assignment.DueDate?.ToShortDateString() ?? "No due date"
+                </td>
+                <td>
+                    <a asp-action="DeleteAssignment" asp-route-id="@assignment.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

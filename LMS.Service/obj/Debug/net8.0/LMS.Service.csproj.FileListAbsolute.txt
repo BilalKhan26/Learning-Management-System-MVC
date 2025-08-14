@@ -1,0 +1,15 @@
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\bin\Debug\net8.0\LMS.Service.deps.json
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\bin\Debug\net8.0\LMS.Service.runtimeconfig.json
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\bin\Debug\net8.0\LMS.Service.dll
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\bin\Debug\net8.0\LMS.Service.pdb
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.csproj.AssemblyReference.cache
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.AssemblyInfoInputs.cache
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.AssemblyInfo.cs
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.csproj.CoreCompileInputs.cache
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.sourcelink.json
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.dll
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\refint\LMS.Service.dll
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.pdb
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.genruntimeconfig.cache
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\ref\LMS.Service.dll

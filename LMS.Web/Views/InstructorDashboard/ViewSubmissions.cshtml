@@ -1,0 +1,67 @@
+﻿@model IEnumerable<LMS.Models.Submission>
+@{
+    ViewData["Title"] = "Submissions";
+    var assignmentId = ViewBag.AssignmentId as int? ?? 0;
+}
+
+<h2>Submissions for: @ViewBag.AssignmentTitle</h2>
+
+<form method="get" class="mb-3">
+    <input type="hidden" name="assignmentId" value="@assignmentId" />
+    <input type="text" name="search" value="@ViewBag.CurrentSearch" placeholder="Search by student or content..."
+           class="form-control" style="width:300px;display:inline-block;" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<a asp-action="Assignments" asp-route-courseId="@ViewBag.CourseId" class="btn btn-secondary mb-3">Back to Assignments</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No submissions found.</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Submitted At</th>
+                <th>Grade</th>
+                <th>Feedback</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model)
+            {
+                <tr>
+                    <td>@s.Student?.DisplayName</td>
+                    <td>@(s.SubmittedAt?.ToString("yyyy-MM-dd HH:mm") ?? "Not submitted")</td>
+                    <td>@(s.Grade?.ToString() ?? "-")</td>
+                    <td>@(string.IsNullOrWhiteSpace(s.Feedback) ? "-" : s.Feedback)</td>
+                    <td>
+                        <a asp-action="GradeSubmission" asp-route-submissionId="@s.Id" class="btn btn-sm btn-success">Grade</a>
+                        @if (!string.IsNullOrEmpty(s.FilePath))
+                        {
+                            <a href="@s.FilePath" target="_blank" class="btn btn-sm btn-info">View File</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("ViewSubmissions", new { assignmentId = assignmentId, page = i, search = ViewBag.CurrentSearch })">
+                        @i
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

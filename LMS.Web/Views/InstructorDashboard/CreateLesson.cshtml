@@ -1,0 +1,30 @@
+﻿@model LMS.Models.Lesson
+@{
+    ViewData["Title"] = "Add Lesson";
+}
+
+<h2>Add Lesson</h2>
+
+<form asp-action="CreateLesson" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="CourseId" value="@ViewBag.CourseId" />
+
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Upload Media</label>
+        <input type="file" name="mediaFile" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+</form>

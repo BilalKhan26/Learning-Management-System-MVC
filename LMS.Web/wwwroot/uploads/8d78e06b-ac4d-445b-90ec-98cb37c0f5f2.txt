@@ -1,0 +1,73 @@
+C-Sharp 
+Variable/Datatype Constant
+Variable -- the values which are recognized by compiler--can be updated halfway in comling using the named variables
+like having a 'Chractername' variable and using it first for Ali than for Hamza ==> updation within code is possible
+Constant -- Immutable values == that are declared
+Cmd
+Console.Write/Readline for any output/input rspctivly
+Datatypes
+byte
+int--> use of Math.'Function' to simplify work
+var
+char
+string--> u can add two or more strings like string phrase = "orange"; cnsle.wrtline(phrase + "is working"); ==>> orange is working
+can use '.Lenght',ToUpper()/Lower()/Contains("orange") to get word count/Uppercase/Lowercase values/Boolean to chaeck words --> useful in text programs 
+float (any value with a 'f'-->20.67f)
+Operator
+OR(||)
+AND(&)
++
+-
+*
+/
+Coversion
+Implicit
+Simple==> int a = 4; byte b = a; cnsl.wrtln(b);
+Explicit
+byte a = 4; int b = (byte)a; cnsl.wrtln(b);
+Non Compatible
+var a = '4'; int b = Convert.ToInt32(a); cnsl.wrtln(b);
+//Several Covert.To'Functions'
+or 
+use try-catch --> using Exception e to get Message according to input via compiler
+-- other method
+parse()
+tryparse()-->>bool TryParse(string s, out T result);
+loops
+for/if-else/while/do-while
+switch
+
+OOP
+get/set
+static method
+object
+inheritance
+
+ https://roadmap.sh/aspnet-core
+    Calculator calObject = new Calculator();
+    int result = calObject.CalculateSum(23, 45);
+    AbsChild absChild = new AbsChild();
+    absChild.Add(10, 5);
+    absChild.Mul(10, 5);
+    Console.WriteLine(result);
+    Console.ReadKey();
+}
+public class Calculator
+{
+    public int CalculateSum(int a, int b)
+    { return a + b; }
+}
+public abstract class AbsParent
+{
+    public void Add(int x, int y)
+    {
+        Console.WriteLine($"Addition of {x} and {y} is : {x + y}");
+    }
+    public abstract void Mul(int x, int y);
+}
+public class AbsChild : AbsParent
+{
+    public override void Mul(int x, int y)
+    {
+        Console.WriteLine($"Multiplication of {x} and {y} is : {x * y}");
+           

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<LMS.Models.Assignment>
+@{
+    ViewData["Title"] = "Assignments";
+    var courseId = ViewBag.CourseId as int? ?? 0;
+}
+
+<h2>Assignments</h2>
+
+<form method="get" class="mb-3">
+    <input type="hidden" name="courseId" value="@courseId" />
+    <input type="text" name="search" value="@ViewBag.CurrentSearch" placeholder="Search assignments..."
+           class="form-control" style="width:300px;display:inline-block;" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<p>
+    <a asp-action="CreateAssignment" asp-route-courseId="@courseId" class="btn btn-primary">+ Create Assignment</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to Courses</a>
+</p>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No assignments for this course yet.</div>
+}
+
+
+else
+{
+    <table class="table">
+        <thead><tr><th>Title</th><th>Due</th><th>Actions</th><th>Status</th></tr></thead>
+        <tbody>
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td>@a.Title</td>
+                    <td>@(a.DueDate?.ToString("yyyy-MM-dd") ?? "No due date")</td>
+                    <td>
+                        <a asp-action="ViewSubmissions" asp-route-assignmentId="@a.Id" class="btn btn-sm btn-info">View Submissions</a>
+                        <form asp-action="DeleteAssignment" method="post" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@a.Id" />
+                            <button type="submit" class="btn btn-sm btn-danger"
+                                    onclick="return confirm('Are you sure you want to delete this assignment?');">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(a.MediaPath))
+                        {
+                            <a href="@a.MediaPath" target="_blank">View Media</a>
+                        }
+                        else
+                        {
+                            <span>No media uploaded</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Assignments", new { courseId = courseId, page = i, search = ViewBag.CurrentSearch })">
+                        @i
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+}

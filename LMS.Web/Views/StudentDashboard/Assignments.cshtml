@@ -1,0 +1,86 @@
+﻿@model IEnumerable<LMS.Models.Assignment>
+
+@{
+    ViewData["Title"] = "Assignments";
+    var submissions = ViewBag.StudentSubmissions as List<LMS.Models.Submission>;
+    var courseId = ViewBag.CourseId;
+}
+
+<h2>Assignments</h2>
+
+
+<form method="get" class="mb-3">
+    <input type="hidden" name="courseId" value="@courseId" />
+    <input type="text" name="search" value="@ViewBag.CurrentSearch" placeholder="Search assignments..." class="form-control" style="width:300px;display:inline-block;" />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">No assignments for this course yet.</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Grade</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var assignment in Model)
+            {
+                var submission = submissions.FirstOrDefault(s => s.AssignmentId == assignment.Id);
+                <tr>
+                    <td>@assignment.Title</td>
+                    <td>@assignment.DueDate?.ToShortDateString()</td>
+                    <td>
+                        @if (submission != null)
+                        {
+                            <span class="text-success">Submitted</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">Not Submitted</span>
+                        }
+                    </td>
+                    <td>
+                        @if (submission != null && submission.Grade.HasValue)
+                        {
+                            @submission.Grade
+                        }
+                        else
+                        {
+                            <em>Not graded</em>
+                        }
+                    </td>
+                    <td>
+                        @if (submission == null)
+                        {
+                            <a asp-action="SubmitAssignment" asp-route-assignmentId="@assignment.Id" class="btn btn-primary btn-sm">Submit</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Assignments", new { courseId, page = i, search = ViewBag.CurrentSearch })">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+<div>
+    <a asp-action="MyCourses" asp-route-courseId="@courseId" class="btn btn-secondary">Back to Courses</a>
+</div>

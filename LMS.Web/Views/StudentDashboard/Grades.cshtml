@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LMS.Models.Submission>
+
+@{
+    ViewData["Title"] = "My Grades";
+}
+
+<h2>My Grades</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No graded submissions yet.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Assignment</th>
+                <th>Submitted At</th>
+                <th>Grade</th>
+                <th>File</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sub in Model)
+            {
+                <tr>
+                    <td>@sub.Assignment.Title</td>
+                    <td>@sub.SubmittedAt?.ToString("g")</td>
+                    <td>
+                        @if (sub.Grade.HasValue)
+                        {
+                            @sub.Grade
+                        }
+                        else
+                        {
+                            <em>Not graded</em>
+                        }
+                    </td>
+                    <td>
+                        <a href="@sub.FilePath" target="_blank">View</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

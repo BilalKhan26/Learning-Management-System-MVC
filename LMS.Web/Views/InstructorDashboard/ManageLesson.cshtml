@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LMS.Models.Lesson>
+
+@{
+    ViewData["Title"] = "Manage Lessons";
+}
+
+<h2>Manage Lessons</h2>
+
+<p>
+    <a asp-action="AddLesson" asp-route-courseId="@ViewBag.CourseId" class="btn btn-primary">Add Lesson</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lesson in Model)
+        {
+            <tr>
+                <td>@lesson.Title</td>
+                <td>@lesson.Content</td>
+                <td>
+                    <a asp-action="DeleteLesson" asp-route-id="@lesson.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

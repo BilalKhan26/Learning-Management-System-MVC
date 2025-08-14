@@ -1,0 +1,17 @@
+﻿@model LMS.Models.Course
+@{
+    ViewData["Title"] = "Delete Course";
+}
+
+<h2>Delete Course</h2>
+
+<div class="alert alert-danger">
+    Are you sure you want to delete the course: <strong>@Model.Title</strong> ?
+</div>
+
+<form asp-action="DeleteCourse" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

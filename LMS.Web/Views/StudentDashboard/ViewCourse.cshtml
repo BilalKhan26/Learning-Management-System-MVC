@@ -1,0 +1,30 @@
+﻿@model LMS.Models.Course
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<h2>@Model.Title</h2>
+<p>@Model.Description</p>
+
+<h3>Lessons</h3>
+<ul>
+    @foreach (var lesson in Model.Lessons ?? new List<LMS.Models.Lesson>())
+    {
+        <li>@lesson.Title</li>
+    }
+</ul>
+
+<h3>Assignments</h3>
+<ul>
+    @foreach (var assignment in Model.Assignments ?? new List<LMS.Models.Assignment>())
+    {
+        <li>@assignment.Title - Due: @(assignment.DueDate?.ToString("yyyy-MM-dd") ?? "No date")</li>
+    }
+</ul>
+
+<form asp-action="Enroll" method="post">
+    <input type="hidden" name="courseId" value="@Model.Id" />
+    <button type="submit" class="btn btn-success">Enroll</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

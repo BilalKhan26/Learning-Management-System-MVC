@@ -1,0 +1,41 @@
+﻿@model IEnumerable<LMS.Models.Course>
+
+@{
+    ViewData["Title"] = "Available Courses";
+}
+
+<h2>Available Courses</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No courses available for enrollment.</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Instructor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model)
+            {
+                <tr>
+                    <td>@course.Title</td>
+                    <td>@course.Description</td>
+                    <td>@course.Instructor?.DisplayName</td>
+                    <td>
+                        <form asp-action="Enroll" method="post">
+                            <input type="hidden" name="courseId" value="@course.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">Enroll</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
