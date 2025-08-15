@@ -363,8 +363,6 @@ C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\Microsoft.VisualS
 C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\Moq.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\PagedList.dll
-C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\PagedList.Mvc.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\System.ClientModel.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Test\bin\Debug\net8.0\System.Diagnostics.EventLog.dll

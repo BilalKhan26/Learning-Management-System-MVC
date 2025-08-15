@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9VUt3XzPZyw=",
+  "dgSpecHash": "94yBI+FQ34g=",
   "success": true,
   "projectFilePath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\LMS.Tests.csproj",
   "expectedPackageFiles": [
@@ -79,8 +79,6 @@
     "C:\\Users\\mbk\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
     "C:\\Users\\mbk\\.nuget\\packages\\more.xunit.runner.visualstudio\\2.3.1\\more.xunit.runner.visualstudio.2.3.1.nupkg.sha512",
     "C:\\Users\\mbk\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\mbk\\.nuget\\packages\\pagedlist\\1.17.0\\pagedlist.1.17.0.nupkg.sha512",
-    "C:\\Users\\mbk\\.nuget\\packages\\pagedlist.mvc\\4.5.0\\pagedlist.mvc.4.5.0.nupkg.sha512",
     "C:\\Users\\mbk\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
     "C:\\Users\\mbk\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",
     "C:\\Users\\mbk\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
@@ -118,30 +116,5 @@
     "C:\\Users\\mbk\\.nuget\\packages\\xunit.extensibility.core\\2.9.3\\xunit.extensibility.core.2.9.3.nupkg.sha512",
     "C:\\Users\\mbk\\.nuget\\packages\\xunit.extensibility.execution\\2.9.3\\xunit.extensibility.execution.2.9.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "message": "Package 'PagedList 1.17.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\LMS.Tests.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\LMS.Tests.csproj",
-      "libraryId": "PagedList",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "message": "Package 'PagedList.Mvc 4.5.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\LMS.Tests.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\LMS.Tests.csproj",
-      "libraryId": "PagedList.Mvc",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

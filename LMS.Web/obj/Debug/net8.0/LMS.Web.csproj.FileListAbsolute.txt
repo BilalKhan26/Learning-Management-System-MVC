@@ -46,8 +46,6 @@ C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\Microsoft.Identity
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\Mono.TextTemplating.dll
-C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\PagedList.dll
-C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\PagedList.Mvc.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\System.ClientModel.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\bin\Debug\net8.0\System.Composition.AttributedModel.dll
@@ -162,3 +160,4 @@ C:\Users\mbk\source\repos\LMSProject\LMS.Web\obj\Debug\net8.0\refint\LMS.Web.dll
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\obj\Debug\net8.0\LMS.Web.pdb
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\obj\Debug\net8.0\LMS.Web.genruntimeconfig.cache
 C:\Users\mbk\source\repos\LMSProject\LMS.Web\obj\Debug\net8.0\ref\LMS.Web.dll
+C:\Users\mbk\source\repos\LMSProject\LMS.Web\obj\Debug\net8.0\LMS.Web.MvcApplicationPartsAssemblyInfo.cs

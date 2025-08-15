@@ -21,12 +21,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="PagedList.Mvc" Version="4.5.0" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="10.5.7" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\LMS.Service\LMS.Service.csproj" />
   </ItemGroup>
 
 </Project>

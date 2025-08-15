@@ -1,0 +1,24 @@
+﻿@model LMS.Models.Course
+@{
+    ViewData["Title"] = "Course Details";
+}
+<div class="container mt-4">
+    <h2>@Model.Title</h2>
+    <p><strong>Instructor:</strong> @Model.Instructor?.DisplayName</p>
+
+    <h4>Lessons</h4>
+    <ul>
+        @foreach (var lesson in Model.Lessons)
+        {
+            <li>@lesson.Title</li>
+        }
+    </ul>
+
+    <h4>Assignments</h4>
+    <ul>
+        @foreach (var assignment in Model.Assignments)
+        {
+            <li>@assignment.Title</li>
+        }
+    </ul>
+</div>

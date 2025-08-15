@@ -117,7 +117,15 @@ namespace LMS.Web.Controllers
         public async Task<IActionResult> Enroll(int courseId)
         {
             var student = await _userManager.GetUserAsync(User);
+            
+            //Arrange for Negative Tests
+            if (student == null)
+                return Unauthorized();
 
+            var courseExists = await _context.Courses.AnyAsync(c => c.Id == courseId);
+            if (!courseExists)
+                return NotFound();
+            //---//
             bool alreadyEnrolled = await _context.CourseEnrollments
                 .AnyAsync(e => e.CourseId == courseId && e.StudentId == student.Id);
 
@@ -141,8 +149,18 @@ namespace LMS.Web.Controllers
         {
             var student = await _userManager.GetUserAsync(User);
 
+            // Arrange for Negative Tests
+            if (student == null)
+                return Unauthorized();
+
             var enrollment = await _context.CourseEnrollments
                 .FirstOrDefaultAsync(e => e.CourseId == courseId && e.StudentId == student.Id);
+
+
+            // Arrange for Negative Tests
+            if (enrollment == null)
+                return RedirectToAction(nameof(MyCourses)); // No-op
+
 
             if (enrollment != null)
             {

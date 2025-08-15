@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07056F59-F985-4BFD-8C31-CDFA77E75A3B}|LMS.Test\\LMS.Tests.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.test\\controllers\\studentdashboardtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07056F59-F985-4BFD-8C31-CDFA77E75A3B}|LMS.Test\\LMS.Tests.csproj|solutionrelative:lms.test\\controllers\\studentdashboardtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\controllers\\studentdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\controllers\\studentdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,41 +14,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StudentDashboardController.cs",
-              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\StudentDashboardController.cs",
-              "RelativeDocumentMoniker": "LMS.Web\\Controllers\\StudentDashboardController.cs",
-              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\StudentDashboardController.cs",
-              "RelativeToolTip": "LMS.Web\\Controllers\\StudentDashboardController.cs",
-              "ViewState": "AgIAAMsAAADAmpmZmZklwM8AAAASAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AdminDashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\AdminDashboardController.cs",
+              "RelativeDocumentMoniker": "LMS.Web\\Controllers\\AdminDashboardController.cs",
+              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\AdminDashboardController.cs",
+              "RelativeToolTip": "LMS.Web\\Controllers\\AdminDashboardController.cs",
+              "ViewState": "AgIAAHQAAAAALDMzMzMLwCYAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T16:17:23.654Z",
+              "WhenOpened": "2025-08-15T15:29:37.614Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StudentDashboardTests.cs",
-              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\Controllers\\StudentDashboardTests.cs",
-              "RelativeDocumentMoniker": "LMS.Test\\Controllers\\StudentDashboardTests.cs",
-              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\Controllers\\StudentDashboardTests.cs",
-              "RelativeToolTip": "LMS.Test\\Controllers\\StudentDashboardTests.cs",
-              "ViewState": "AgIAAF4AAAAAaWZmZmYEwGkAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T16:00:19.183Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
             }
           ]
         }

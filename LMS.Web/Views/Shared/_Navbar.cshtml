@@ -39,8 +39,19 @@
                     else if (User.IsInRole("Admin"))
                     {
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Admin" asp-action="Index">Admin Dashboard</a>
+                            <a class="nav-link" asp-controller="AdminDashboard" asp-action="Index">Admin Dashboard</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="AdminDashboard" asp-action="Instructors">Manage Instructors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="AdminDashboard" asp-action="Students">Manage Students</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="AdminDashboard" asp-action="Courses">Courses</a>
+                        </li>
+
+
                     }
                 }
                 else

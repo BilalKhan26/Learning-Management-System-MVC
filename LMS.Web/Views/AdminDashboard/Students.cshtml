@@ -1,0 +1,74 @@
+﻿@model IEnumerable<LMS.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "Manage Students";
+}
+<div class="container mt-4">
+    <h2>Students</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="student-table">
+            @foreach (var student in Model)
+            {
+                <tr data-id="@student.Id">
+                    <td class="editable" data-field="Email">@student.Email</td>
+                    <td class="editable" data-field="FullName">@student.DisplayName</td>
+                    <td>
+                        <form asp-action="DeleteStudent" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@student.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4>Add Student</h4>
+    <form asp-action="CreateStudent" method="post">
+        <div class="mb-2">
+            <input type="email" name="Email" class="form-control" placeholder="Email" required />
+        </div>
+        <div class="mb-2">
+            <input type="text" name="FullName" class="form-control" placeholder="Full Name" required />
+        </div>
+        <div class="mb-2">
+            <input type="password" name="password" class="form-control" placeholder="Password" required />
+        </div>
+        <button class="btn btn-primary">Add</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.editable').forEach(cell => {
+            cell.addEventListener('dblclick', function () {
+                let originalText = this.innerText;
+                let input = document.createElement('input');
+                input.value = originalText;
+                this.innerText = '';
+                this.appendChild(input);
+                input.focus();
+
+                input.addEventListener('blur', async () => {
+                    let newValue = input.value;
+                    let userId = this.closest('tr').dataset.id;
+                    let field = this.dataset.field;
+
+                    await fetch('/Admin/EditStudent', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ Id: userId, [field]: newValue })
+                    });
+
+                    this.innerText = newValue;
+                });
+            });
+        });
+    </script>
+}
