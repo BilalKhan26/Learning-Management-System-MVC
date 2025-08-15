@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\views\\studentdashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\views\\studentdashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\controllers\\studentdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\controllers\\studentdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07056F59-F985-4BFD-8C31-CDFA77E75A3B}|LMS.Test\\LMS.Tests.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.test\\controllers\\studentdashboardcontrollernegativetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07056F59-F985-4BFD-8C31-CDFA77E75A3B}|LMS.Test\\LMS.Tests.csproj|solutionrelative:lms.test\\controllers\\studentdashboardcontrollernegativetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +43,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Views\\StudentDashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "LMS.Web\\Views\\StudentDashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Views\\StudentDashboard\\Index.cshtml",
+              "RelativeToolTip": "LMS.Web\\Views\\StudentDashboard\\Index.cshtml",
+              "ViewState": "AgIAAA0AAAAgJzMzMzMbwBcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-15T19:20:51.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentDashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\StudentDashboardController.cs",
+              "RelativeDocumentMoniker": "LMS.Web\\Controllers\\StudentDashboardController.cs",
+              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\StudentDashboardController.cs",
+              "RelativeToolTip": "LMS.Web\\Controllers\\StudentDashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T19:20:41.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentDashboardControllerNegativeTests.cs",
+              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\Controllers\\StudentDashboardControllerNegativeTests.cs",
+              "RelativeDocumentMoniker": "LMS.Test\\Controllers\\StudentDashboardControllerNegativeTests.cs",
+              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\Controllers\\StudentDashboardControllerNegativeTests.cs",
+              "RelativeToolTip": "LMS.Test\\Controllers\\StudentDashboardControllerNegativeTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T19:20:23.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AdminDashboardController.cs",
               "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\AdminDashboardController.cs",
               "RelativeDocumentMoniker": "LMS.Web\\Controllers\\AdminDashboardController.cs",
               "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\AdminDashboardController.cs",
               "RelativeToolTip": "LMS.Web\\Controllers\\AdminDashboardController.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAABgPZgAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAABgPZgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-15T17:08:35.282Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "LMS.Web\\Controllers\\HomeController.cs",
@@ -51,12 +102,11 @@
               "RelativeToolTip": "LMS.Web\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T17:08:32.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T17:08:32.908Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AdminControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Test\\Controllers\\AdminControllerTests.cs",
               "RelativeDocumentMoniker": "LMS.Test\\Controllers\\AdminControllerTests.cs",
@@ -64,8 +114,7 @@
               "RelativeToolTip": "LMS.Test\\Controllers\\AdminControllerTests.cs",
               "ViewState": "AgIAAMMAAACAZWZmZmYswNEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T16:59:17.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T16:59:17.434Z"
             },
             {
               "$type": "Bookmark",

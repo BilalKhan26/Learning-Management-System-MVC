@@ -21,7 +21,7 @@ else
                     <td>@course.Title</td>
                     <td>@course.Instructor?.DisplayName</td>
                     <td>
-                        <a asp-action="ViewCourse" asp-route-id="@course.Id" class="btn btn-primary">View</a>
+                        <a asp-action="MyCourses" asp-route-id="@course.Id" class="btn btn-primary">Course Details</a>
                         <form asp-action="Unenroll" method="post" style="display:inline;">
                             <input type="hidden" name="courseId" value="@course.Id" />
                             <button type="submit" class="btn btn-danger">Unenroll</button>
@@ -56,6 +56,7 @@ else
                     <td>@course.Instructor?.DisplayName</td>
                     <td>
                         <form asp-action="Enroll" method="post">
+                        <a asp-action="ViewCourse" asp-route-id="@course.Id" class="btn btn-primary">Details</a>
                             <input type="hidden" name="courseId" value="@course.Id" />
                             <button type="submit" class="btn btn-success">Enroll</button>
                         </form>
