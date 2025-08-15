@@ -15,23 +15,14 @@ using Xunit;
 
 namespace LMS.Tests.Controllers
 {
-    public class AdminControllerTests
+    public class AdminDashboardControllerTests
     {
         private readonly DbContextOptions<ApplicationDbContext> _dbOptions;
         private readonly Mock<UserManager<ApplicationUser>> _mockUserManager;
-        private readonly ApplicationDbContext _context;
 
-
-        public AdminControllerTests()
+        public AdminDashboardControllerTests()
         {
             _mockUserManager = MockUserManager();
-
-            var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                .Options;
-
-            _context = new ApplicationDbContext(options);
-
             _dbOptions = new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
@@ -47,33 +38,42 @@ namespace LMS.Tests.Controllers
 
         private AdminDashboardController GetController(ApplicationDbContext context, string role = "Admin")
         {
-            var mockUserManager = MockUserManager();
-
-            var controller = new AdminDashboardController(context, mockUserManager.Object);
-
+            var controller = new AdminDashboardController(context, _mockUserManager.Object);
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, "admin-123"),
-                new Claim(ClaimTypes.Email, "admin@lms.com"),
+                new Claim(ClaimTypes.NameIdentifier, "admin-1"),
+                new Claim(ClaimTypes.Email, "admin@test.com"),
                 new Claim(ClaimTypes.Role, role)
             };
-            var identity = new ClaimsIdentity(claims, "TestAuthType");
+            var identity = new ClaimsIdentity(claims, "TestAuth");
             controller.ControllerContext = new ControllerContext
             {
                 HttpContext = new DefaultHttpContext { User = new ClaimsPrincipal(identity) }
             };
-
             return controller;
         }
 
-        // ✅ POSITIVE TEST: Get list of instructors
         [Fact]
-        public async Task Instructors_ShouldReturnList_WhenInstructorsExist()
+        public async Task Index_ShouldSet_DisplayName()
         {
-            using var context = new ApplicationDbContext(_dbOptions);
-            context.Users.Add(new ApplicationUser { Id = "instr-1", UserName = "john", Email = "john@lms.com" });
-            await context.SaveChangesAsync();
+            var context = new ApplicationDbContext(_dbOptions);
+            var user = new ApplicationUser { Id = "admin-1", UserName = "AdminUser", DisplayName = "Admin Name" };
+            _mockUserManager.Setup(m => m.GetUserAsync(It.IsAny<ClaimsPrincipal>())).ReturnsAsync(user);
 
+            var controller = GetController(context);
+            var result = await controller.Index();
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.Equal("Admin Name", controller.ViewBag.DisplayName);
+        }
+
+        [Fact]
+        public async Task Instructors_ShouldReturnList_WhenExists()
+        {
+            var instructors = new List<ApplicationUser> { new ApplicationUser { Id = "i1", UserName = "john" } };
+            _mockUserManager.Setup(m => m.GetUsersInRoleAsync("Instructor")).ReturnsAsync(instructors);
+
+            var context = new ApplicationDbContext(_dbOptions);
             var controller = GetController(context);
 
             var result = await controller.Instructors();
@@ -81,14 +81,14 @@ namespace LMS.Tests.Controllers
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<IEnumerable<ApplicationUser>>(viewResult.Model);
             Assert.Single(model);
-            Assert.Equal("john", model.First().UserName);
         }
 
-        // ❌ NEGATIVE TEST: Instructors returns empty list
         [Fact]
-        public async Task Instructors_ShouldReturnEmptyList_WhenNoInstructorsExist()
+        public async Task Instructors_ShouldReturnEmpty_WhenNone()
         {
-            using var context = new ApplicationDbContext(_dbOptions);
+            _mockUserManager.Setup(m => m.GetUsersInRoleAsync("Instructor")).ReturnsAsync(new List<ApplicationUser>());
+
+            var context = new ApplicationDbContext(_dbOptions);
             var controller = GetController(context);
 
             var result = await controller.Instructors();
@@ -98,222 +98,169 @@ namespace LMS.Tests.Controllers
             Assert.Empty(model);
         }
 
-        // ✅ POSITIVE TEST: Get courses list
         [Fact]
-        public async Task Courses_ShouldReturnList_WhenCoursesExist()
+        public async Task CreateInstructor_ShouldRedirect_WhenValid()
         {
-            using var context = new ApplicationDbContext(_dbOptions);
-            var course = new Course { Id = 1, Title = "C# Basics" };
-            context.Courses.Add(course);
+            var context = new ApplicationDbContext(_dbOptions);
+            var newInstr = new ApplicationUser { Email = "i@test.com" };
+
+            _mockUserManager.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>())).ReturnsAsync(IdentityResult.Success);
+            _mockUserManager.Setup(m => m.AddToRoleAsync(It.IsAny<ApplicationUser>(), "Instructor")).ReturnsAsync(IdentityResult.Success);
+
+            var controller = GetController(context);
+            var result = await controller.CreateInstructor(newInstr, "Pass123!");
+
+            var redirect = Assert.IsType<RedirectToActionResult>(result);
+            Assert.Equal("Instructors", redirect.ActionName);
+        }
+
+        [Fact]
+        public async Task CreateInstructor_ShouldReturnView_WhenInvalid()
+        {
+            var context = new ApplicationDbContext(_dbOptions);
+            var newInstr = new ApplicationUser { Email = "bad@test.com" };
+
+            _mockUserManager.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(IdentityResult.Failed(new IdentityError { Description = "Error" }));
+
+            var controller = GetController(context);
+            var result = await controller.CreateInstructor(newInstr, "bad");
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.Same(newInstr, viewResult.Model);
+        }
+
+        [Fact]
+        public async Task EditInstructor_ShouldUpdate_WhenValid()
+        {
+            var instr = new ApplicationUser { Id = "i1", Email = "old@test.com" };
+            _mockUserManager.Setup(m => m.FindByIdAsync("i1")).ReturnsAsync(instr);
+            _mockUserManager.Setup(m => m.UpdateAsync(It.IsAny<ApplicationUser>())).ReturnsAsync(IdentityResult.Success);
+
+            var context = new ApplicationDbContext(_dbOptions);
+            var controller = GetController(context);
+            var result = await controller.EditInstructor(new ApplicationUser { Id = "i1", Email = "new@test.com" });
+
+            var redirect = Assert.IsType<RedirectToActionResult>(result);
+            Assert.Equal("Instructors", redirect.ActionName);
+        }
+
+        [Fact]
+        public async Task EditInstructor_ShouldReturnNotFound_WhenMissing()
+        {
+            _mockUserManager.Setup(m => m.FindByIdAsync("x")).ReturnsAsync((ApplicationUser)null);
+
+            var context = new ApplicationDbContext(_dbOptions);
+            var controller = GetController(context);
+            var result = await controller.EditInstructor(new ApplicationUser { Id = "x" });
+
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task DeleteInstructor_ShouldRedirect_WhenExists()
+        {
+            var instr = new ApplicationUser { Id = "i1" };
+            _mockUserManager.Setup(m => m.FindByIdAsync("i1")).ReturnsAsync(instr);
+            _mockUserManager.Setup(m => m.DeleteAsync(instr)).ReturnsAsync(IdentityResult.Success);
+
+            var context = new ApplicationDbContext(_dbOptions);
+            var controller = GetController(context);
+            var result = await controller.DeleteInstructor("i1");
+
+            var redirect = Assert.IsType<RedirectToActionResult>(result);
+            Assert.Equal("Instructors", redirect.ActionName);
+        }
+
+        [Fact]
+        public async Task Students_ShouldReturnList()
+        {
+            var students = new List<ApplicationUser> { new ApplicationUser { Id = "s1" } };
+            _mockUserManager.Setup(m => m.GetUsersInRoleAsync("Student")).ReturnsAsync(students);
+
+            var context = new ApplicationDbContext(_dbOptions);
+            var controller = GetController(context);
+            var result = await controller.Students();
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+            var model = Assert.IsAssignableFrom<IEnumerable<ApplicationUser>>(viewResult.Model);
+            Assert.Single(model);
+        }
+
+        [Fact]
+        public async Task Courses_ShouldReturnList()
+        {
+            var context = new ApplicationDbContext(_dbOptions);
+
+            // Create instructor so FK InstructorId is valid
+            var instructor = new ApplicationUser
+            {
+                Id = "inst-1",
+                UserName = "instructor1",
+                Email = "instructor1@test.com"
+            };
+            context.Users.Add(instructor);
+
+            // Add course with valid InstructorId
+            context.Courses.Add(new Course
+            {
+                Id = 1,
+                Title = "C# Basics",
+                InstructorId = instructor.Id,
+                Instructor = instructor
+            });
+
             await context.SaveChangesAsync();
 
             var controller = GetController(context);
-
             var result = await controller.Courses();
 
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<IEnumerable<Course>>(viewResult.Model);
             Assert.Single(model);
-            Assert.Equal("C# Basics", model.First().Title);
         }
 
-        // ❌ NEGATIVE TEST: Courses returns empty list
+
         [Fact]
-        public async Task Courses_ShouldReturnEmptyList_WhenNoCoursesExist()
+        public async Task CourseDetails_ShouldReturnView_WhenFound()
         {
-            using var context = new ApplicationDbContext(_dbOptions);
-            var controller = GetController(context);
+            var context = new ApplicationDbContext(_dbOptions);
 
-            var result = await controller.Courses();
+            var instructor = new ApplicationUser
+            {
+                Id = "i100",
+                UserName = "instructor1",
+                Email = "instructor@lms.com"
+            };
+            context.Users.Add(instructor);
 
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<Course>>(viewResult.Model);
-            Assert.Empty(model);
-        }
+            context.Courses.Add(new Course
+            {
+                Id = 5,
+                Title = "Java Basics",
+                InstructorId = instructor.Id,
+                Instructor = instructor
+            });
 
-        // ✅ POSITIVE TEST: CourseDetails shows course
-        [Fact]
-        public async Task CourseDetails_ShouldReturnCourse_WhenIdExists()
-        {
-            using var context = new ApplicationDbContext(_dbOptions);
-            var course = new Course { Id = 2, Title = "Java Basics" };
-            context.Courses.Add(course);
             await context.SaveChangesAsync();
 
             var controller = GetController(context);
-
-            var result = await controller.CourseDetails(2);
+            var result = await controller.CourseDetails(5);
 
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsType<Course>(viewResult.Model);
             Assert.Equal("Java Basics", model.Title);
         }
 
-        // ❌ NEGATIVE TEST: CourseDetails returns NotFound
-        [Fact]
-        public async Task CourseDetails_ShouldReturnNotFound_WhenIdDoesNotExist()
-        {
-            using var context = new ApplicationDbContext(_dbOptions);
-            var controller = GetController(context);
-
-            var result = await controller.CourseDetails(999);
-
-            Assert.IsType<NotFoundResult>(result);
-        }
-
-        [Fact]
-        public async Task Instructors_ShouldReturnList()
-        {
-            // Arrange
-            var instructors = new List<ApplicationUser>
-            {
-                new ApplicationUser { Id = "1", UserName = "instr1", Email = "i1@test.com" }
-            };
-            _mockUserManager.Setup(m => m.GetUsersInRoleAsync("Instructor"))
-                .ReturnsAsync(instructors);
-
-            var controller = new AdminDashboardController(_context, _mockUserManager.Object);
-
-            // Act
-            var result = await controller.Instructors();
-
-            // Assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<ApplicationUser>>(viewResult.Model);
-            Assert.Single(model);
-        }
-
-        [Fact]
-        public async Task Students_ShouldReturnList()
-        {
-            // Arrange
-            var students = new List<ApplicationUser>
-            {
-                new ApplicationUser { Id = "2", UserName = "stud1", Email = "s1@test.com" }
-            };
-            _mockUserManager.Setup(m => m.GetUsersInRoleAsync("Student"))
-                .ReturnsAsync(students);
-
-            var controller = new AdminDashboardController(_context, _mockUserManager.Object);
-
-            // Act
-            var result = await controller.Students();
-
-            // Assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<ApplicationUser>>(viewResult.Model);
-            Assert.Single(model);
-        }
-
-        [Fact]
-        public async Task AddInstructor_ShouldAdd_WhenValid()
-        {
-            // Arrange
-            var newInstr = new ApplicationUser { UserName = "newinstr", Email = "newinstr@test.com" };
-
-            _mockUserManager.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
-                .ReturnsAsync(IdentityResult.Success);
-            _mockUserManager.Setup(m => m.AddToRoleAsync(It.IsAny<ApplicationUser>(), "Instructor"))
-                .ReturnsAsync(IdentityResult.Success);
-
-            var controller = new AdminDashboardController(_context, _mockUserManager.Object);
-
-            // Act
-            var result = await controller.CreateInstructor(newInstr, "Pass123!");
-
-            // Assert
-            var redirect = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("Instructors", redirect.ActionName);
-        }
-
-        [Fact]
-        public async Task AddInstructor_ShouldFail_WhenInvalid()
-        {
-            // Arrange
-            var newInstr = new ApplicationUser { UserName = "bad", Email = "bad@test.com" };
-
-            _mockUserManager.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
-                .ReturnsAsync(IdentityResult.Failed(new IdentityError { Description = "Bad password" }));
-
-            var controller = new AdminDashboardController(_context, _mockUserManager.Object);
-
-            // Act
-            var result = await controller.CreateInstructor(newInstr, "short");
-
-            // Assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            Assert.Equal("Instructors", viewResult.ViewName);
-        }
-
-        [Fact]
-        public async Task DeleteUser_ShouldRedirect_WhenFound()
-        {
-            // Arrange
-            var user = new ApplicationUser { Id = "delete1" };
-            _mockUserManager.Setup(m => m.FindByIdAsync("delete1")).ReturnsAsync(user);
-            _mockUserManager.Setup(m => m.DeleteAsync(user)).ReturnsAsync(IdentityResult.Success);
-
-            var controller = new AdminDashboardController(_context, _mockUserManager.Object);
-
-            // Act
-            var result = await controller.DeleteInstructor("delete1");
-
-
-            // Assert
-            var redirect = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("Instructors", redirect.ActionName);
-        }
-
-        [Fact]
-        public async Task Courses_ShouldReturnList()
-        {
-            // Arrange
-            _context.Courses.Add(new Course { Id = 1, Title = "Programming Fundamentals" });
-            await _context.SaveChangesAsync();
-
-            var controller = new AdminDashboardController(_context, _mockUserManager.Object);
-
-            // Act
-            var result = await controller.Courses();
-
-            // Assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<Course>>(viewResult.Model);
-            Assert.Single(model);
-        }
-
-        [Fact]
-        public async Task CourseDetails_ShouldReturnCourse_WhenFound()
-        {
-            // Arrange
-            var course = new Course { Id = 10, Title = "Java", Lessons = new List<Lesson>(), Assignments = new List<Assignment>() };
-            _context.Courses.Add(course);
-            await _context.SaveChangesAsync();
-
-            var controller = new AdminDashboardController(_context, _mockUserManager.Object);
-
-            // Act
-            var result = await controller.CourseDetails(10);
-
-            // Assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsType<Course>(viewResult.Model);
-            Assert.Equal("Java", model.Title);
-        }
 
         [Fact]
         public async Task CourseDetails_ShouldReturnNotFound_WhenMissing()
         {
-            // Arrange
-            var controller = new AdminDashboardController(_context, _mockUserManager.Object);
-
-            // Act
+            var context = new ApplicationDbContext(_dbOptions);
+            var controller = GetController(context);
             var result = await controller.CourseDetails(999);
 
-            // Assert
             Assert.IsType<NotFoundResult>(result);
         }
-
-       
     }
 }

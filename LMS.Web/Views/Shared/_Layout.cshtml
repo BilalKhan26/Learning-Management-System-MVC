@@ -10,20 +10,24 @@
     <link href="~/css/mainstylesheet.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/LMS.Web.styles.css" asp-append-version="true" />
 </head>
-<body>
-
+<body class="d-flex flex-column min-vh-100">
+   
+    <header>
     @await Html.PartialAsync("_Navbar")  <!-- Role-based navbar -->
+    </header>
 
-    <div class="container mt-4">
-        @RenderBody()
-    </div>
+    <main role="main" class="flex-fill">
+        <div class="container py-4">
+            @RenderBody()
+        </div>
+    </main>
 
-    <footer class="border-top footer text-muted mt-4">
+    <footer class="bg-dark-subtle text-dark text-center py-3 mt-auto">
         <div class="container">
             &copy; 2025 - LMS.Web - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

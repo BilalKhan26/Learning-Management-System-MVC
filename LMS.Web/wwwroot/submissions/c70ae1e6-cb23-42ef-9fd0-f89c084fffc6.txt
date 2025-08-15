@@ -1,0 +1,18 @@
+Admin:
+{
+  "$id": "1",
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBZG1pbkBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwianRpIjoiYWE2ZGVlYWMtNTMzYy00ODIzLTlhODItOTkxMThiYmRkYjI3IiwiZXhwIjoxNzU0NTg5NTM5LCJpc3MiOiJMTVMuV2ViIiwiYXVkIjoiTE1TLldlYiJ9.z3dhfLmBL52hBOZPx0o1m-QicIVkgIexT0gK-8DaFmo",
+  "refreshToken": "ySxa2co9gVFA4IIoCDiUu7jneuM3M/megGnh3wwzxsc="
+}
+Instructor
+{
+  "$id": "1",
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJJbnN0cnVjdG9yQGV4YW1wbGUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiSW5zdHJ1Y3RvciIsImp0aSI6IjM4YzAxMzVkLTAxNDItNDliZS04NWQ2LWEzNGEwMGE3ZDVmZCIsImV4cCI6MTc1NDU4OTYwOSwiaXNzIjoiTE1TLldlYiIsImF1ZCI6IkxNUy5XZWIifQ.evFA5Whz8wCsXykIbUCjeSnjN2X1rahggj-kzcr7QaE",
+  "refreshToken": "eyJZ9fZwiWUgAAedG67jp2hIbxj3MPGB8gJ125RShk4="
+}
+Student: 
+{
+  "$id": "1",
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJTdHVkZW50QGV4YW1wbGUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3R1ZGVudCIsImp0aSI6IjgxMzg2NzQ3LTBhZWMtNGNmNS04MjY5LTgwOWQ3ZWM4OTk5NiIsImV4cCI6MTc1NDU5MDg4MiwiaXNzIjoiTE1TLldlYiIsImF1ZCI6IkxNUy5XZWIifQ.ChHnH7JEvg8JKU_X8mscEGi2GEpUv6ZV4l9Qt3ljdgo",
+  "refreshToken": "LRTycdmsuKZPzo6PqJXcbtcWj0YZFeF/1fT41K+yz0Q="
+}

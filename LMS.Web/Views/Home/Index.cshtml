@@ -1,17 +1,36 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home - Learning Management System";
 }
+<body>
+    <div class="container mt-5">
+    <div class="jumbotron text-center bg-dark-subtle p-5 rounded shadow-sm">
+        <h1 class="display-4">Welcome to the Learning Management System</h1>
+        <p class="lead">
+            A platform where students, instructors, and admins connect for efficient learning.
+        </p>
+        <hr class="my-4" />
+        <p>
+            Get started by choosing your role below.
+        </p>
+        <div class="mt-4">
+            <a href="/Account/Login" class="btn btn-success btn-lg m-2">Login</a>
+            <a href="/Account/Register" class="btn btn-outline-secondary btn-lg m-2">Register</a>
+        </div>
+    </div>
 
-@{
-    ViewData["Title"] = "Home";
-}
-<h2>Welcome to LMS</h2>
-
-<p>Use seeded accounts (Email / Password):</p>
-<ul>
-    <li>Admin: admin@lms.com / Admin123!</li>
-    <li>Instructor: instructor@lms.com / Instructor123!</li>
-    <li>Student: student@lms.com / Student123!</li>
-</ul>
-
-
+    <div class="row mt-5 text-center">
+        <div class="col-md-4">
+            <h3>📚 Courses</h3>
+            <p>Browse and enroll in available courses.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>👨‍🏫 Instructors</h3>
+            <p>Create, manage, and grade assignments.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>🛠 Admin Panel</h3>
+            <p>Manage users, courses, and platform settings.</p>
+        </div>
+    </div>
+</div>
+</body>
