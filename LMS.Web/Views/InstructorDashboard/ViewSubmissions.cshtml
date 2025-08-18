@@ -27,7 +27,7 @@ else
                 <th>Student</th>
                 <th>Submitted At</th>
                 <th>Grade</th>
-                <th>Feedback</th>
+                
                 <th>Actions</th>
             </tr>
         </thead>
@@ -38,7 +38,7 @@ else
                     <td>@s.Student?.DisplayName</td>
                     <td>@(s.SubmittedAt?.ToString("yyyy-MM-dd HH:mm") ?? "Not submitted")</td>
                     <td>@(s.Grade?.ToString() ?? "-")</td>
-                    <td>@(string.IsNullOrWhiteSpace(s.Feedback) ? "-" : s.Feedback)</td>
+                  
                     <td>
                         <a asp-action="GradeSubmission" asp-route-submissionId="@s.Id" class="btn btn-sm btn-success">Grade</a>
                         @if (!string.IsNullOrEmpty(s.FilePath))

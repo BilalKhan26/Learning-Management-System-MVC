@@ -13,3 +13,6 @@ C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\refint\LMS.Ser
 C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.pdb
 C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Service.genruntimeconfig.cache
 C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\ref\LMS.Service.dll
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\bin\Debug\net8.0\LMS.Core.dll
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\bin\Debug\net8.0\LMS.Core.pdb
+C:\Users\mbk\source\repos\LMSProject\LMS.Service\obj\Debug\net8.0\LMS.Serv.DC454ACD.Up2Date

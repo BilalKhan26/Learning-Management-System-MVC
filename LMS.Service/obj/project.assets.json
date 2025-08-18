@@ -1668,6 +1668,23 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "LMS.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.19",
+          "Microsoft.AspNetCore.Identity.UI": "8.0.19",
+          "Microsoft.EntityFrameworkCore": "8.0.19",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.19",
+          "X.PagedList.Mvc.Core": "10.5.7"
+        },
+        "compile": {
+          "bin/placeholder/LMS.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LMS.Core.dll": {}
+        }
       }
     }
   },
@@ -4467,10 +4484,16 @@
         "x.pagedlist.mvc.core.10.5.7.nupkg.sha512",
         "x.pagedlist.mvc.core.nuspec"
       ]
+    },
+    "LMS.Core/1.0.0": {
+      "type": "project",
+      "path": "../LMS.Core/LMS.Core.csproj",
+      "msbuildProject": "../LMS.Core/LMS.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "LMS.Core >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.19",
       "Microsoft.AspNetCore.Identity.UI >= 8.0.19",
       "Microsoft.EntityFrameworkCore >= 8.0.19",
@@ -4511,7 +4534,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Core\\LMS.Core.csproj": {
+              "projectPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Core\\LMS.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

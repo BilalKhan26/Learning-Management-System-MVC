@@ -127,6 +127,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Core\\LMS.Core.csproj": {
+                "projectPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Core\\LMS.Core.csproj"
+              },
               "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Service\\LMS.Service.csproj": {
                 "projectPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Service\\LMS.Service.csproj"
               }
@@ -224,7 +227,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Core\\LMS.Core.csproj": {
+                "projectPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Core\\LMS.Core.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

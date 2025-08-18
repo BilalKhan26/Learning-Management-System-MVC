@@ -1690,6 +1690,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "LMS.Core": "1.0.0",
           "LMS.Service": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.19",
           "Microsoft.AspNetCore.Identity.UI": "8.0.19",
@@ -1708,6 +1709,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "LMS.Core": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.19",
           "Microsoft.AspNetCore.Identity.UI": "8.0.19",
           "Microsoft.EntityFrameworkCore": "8.0.19",
