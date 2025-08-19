@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\mbk\\source\\repos\\LMSProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\views\\studentdashboard\\assignments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\views\\studentdashboard\\assignments.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\views\\studentdashboard\\submitassignment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\views\\studentdashboard\\submitassignment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\views\\shared\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\views\\shared\\_navbar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|c:\\users\\mbk\\source\\repos\\lmsproject\\lms.web\\controllers\\studentdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7CE26640-FC15-41A3-90A5-E5CA470987D0}|LMS.Web\\LMS.Web.csproj|solutionrelative:lms.web\\controllers\\studentdashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,59 +25,16 @@
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Assignments.cshtml",
-              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Views\\StudentDashboard\\Assignments.cshtml",
-              "RelativeDocumentMoniker": "LMS.Web\\Views\\StudentDashboard\\Assignments.cshtml",
-              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Views\\StudentDashboard\\Assignments.cshtml",
-              "RelativeToolTip": "LMS.Web\\Views\\StudentDashboard\\Assignments.cshtml",
-              "ViewState": "AgIAAA0AAABAeJmZmZkOwCgAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-18T15:28:38.249Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SubmitAssignment.cshtml",
-              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Views\\StudentDashboard\\SubmitAssignment.cshtml",
-              "RelativeDocumentMoniker": "LMS.Web\\Views\\StudentDashboard\\SubmitAssignment.cshtml",
-              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Views\\StudentDashboard\\SubmitAssignment.cshtml",
-              "RelativeToolTip": "LMS.Web\\Views\\StudentDashboard\\SubmitAssignment.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-18T15:28:27.192Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Navbar.cshtml",
-              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Views\\Shared\\_Navbar.cshtml",
-              "RelativeDocumentMoniker": "LMS.Web\\Views\\Shared\\_Navbar.cshtml",
-              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Views\\Shared\\_Navbar.cshtml",
-              "RelativeToolTip": "LMS.Web\\Views\\Shared\\_Navbar.cshtml",
-              "ViewState": "AgIAADgAAAAANjMzMzMbwFMAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-18T15:18:55.363Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AdminDashboardController.cs",
-              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\AdminDashboardController.cs",
-              "RelativeDocumentMoniker": "LMS.Web\\Controllers\\AdminDashboardController.cs",
-              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\AdminDashboardController.cs",
-              "RelativeToolTip": "LMS.Web\\Controllers\\AdminDashboardController.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAiwK8AAAAAAAAAAAAAAA==",
+              "Title": "StudentDashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\StudentDashboardController.cs",
+              "RelativeDocumentMoniker": "LMS.Web\\Controllers\\StudentDashboardController.cs",
+              "ToolTip": "C:\\Users\\mbk\\source\\repos\\LMSProject\\LMS.Web\\Controllers\\StudentDashboardController.cs",
+              "RelativeToolTip": "LMS.Web\\Controllers\\StudentDashboardController.cs",
+              "ViewState": "AgIAAFQAAAAAKWZmZuYpwFoAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T15:18:50.16Z",
+              "WhenOpened": "2025-08-19T15:24:16.003Z",
               "EditorCaption": ""
             }
           ]

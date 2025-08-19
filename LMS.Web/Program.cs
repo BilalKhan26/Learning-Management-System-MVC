@@ -41,7 +41,7 @@ async Task SeedRolesAsync(IServiceProvider serviceProvider)
     }
 }
 
-
+//DI for both services every time it is requested generate a new instance
 builder.Services.AddScoped<EmailSender>();
 builder.Services.AddScoped<JwtEmailService>();
 
@@ -51,7 +51,7 @@ builder.Services.AddControllersWithViews();
 var app = builder.Build();
 
 // Ensure DB and seed roles/users
-using (var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope()) //using statement ensures the scope is disposed after use
 {
     var services = scope.ServiceProvider;
 
@@ -74,6 +74,7 @@ using (var scope = app.Services.CreateScope())
 // Middleware
 if (!app.Environment.IsDevelopment())
 {
+    //Calls for production error handling
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
@@ -86,7 +87,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Default route
+// Default route ;Middle ware for routing
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
